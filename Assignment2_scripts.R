@@ -15,3 +15,6 @@ pos.npre <- which(T$PTL==0)
 T.NP <- T[pos.npre,]
 pos.pre <- which(T$PTL>0)
 T.P <- T[pos.pre,]
+sd.NP <- sd(T.NP$BWT)
+sd.P <- sd(T.P$BWT)
+sprintf("The standard deviation of the birth weight of children born to mothers of previous premature births is sd.P %s. The standard deviation of the birth weight of children born to mothers of non-previous premature is sd.NP %s.", sd.P, sd.NP)
