@@ -15,6 +15,12 @@ pos.npre <- which(T$PTL==0)
 T.NP <- T[pos.npre,]
 pos.pre <- which(T$PTL>0)
 T.P <- T[pos.pre,]
+#calculate the standard deviation of each
 sd.NP <- sd(T.NP$BWT)
 sd.P <- sd(T.P$BWT)
+#Prints out the standard deviation of children born to mothers of previous premature births and mothers of non-premature births mothers
 sprintf("The standard deviation of the birth weight of children born to mothers of previous premature births is sd.P %s. The standard deviation of the birth weight of children born to mothers of non-previous premature is sd.NP %s.", sd.P, sd.NP)
+
+#culculate the fraction of smoking mom who has premature births
+f <- sum(T.S$PTL>0)/nrow(T.S)
+sprintf("The fraction of smoking mothers which have previously had premature births is f %s.", f)
