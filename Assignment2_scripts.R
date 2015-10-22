@@ -35,4 +35,11 @@ myfun <- function(m1, sd1, x0, x1, N){
   E <- sum(x*px)
   SD <- sd(x)
   sprintf("The expected value of x is %s, the standard deviation of x is %s.", E, SD)
+  
+  #testing the potential correlation between sample1 and sample2
+  S2 <- sample2^2
+  mod <- lm(sample1 ~ sample2 + S2)
+  plot(sample1, sample2)
+  lines(sample1, sample2, mod)
+  print (coef(mod))
 }
