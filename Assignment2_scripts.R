@@ -1,4 +1,4 @@
-#Download the datasets
+#(1)Download the datasets
 T <- read.table("http://www.biostatisticien.eu/springeR/Weight_birth.csv", header=TRUE)
 #filter out the smoking mom
 pos.s <- which(T$SMOKE==1)
@@ -20,7 +20,15 @@ sd.NP <- sd(T.NP$BWT)
 sd.P <- sd(T.P$BWT)
 #Prints out the standard deviation of children born to mothers of previous premature births and mothers of non-premature births mothers
 sprintf("The standard deviation of the birth weight of children born to mothers of previous premature births is sd.P %s. The standard deviation of the birth weight of children born to mothers of non-previous premature is sd.NP %s.", sd.P, sd.NP)
-
 #culculate the fraction of smoking mom who has premature births
 f <- sum(T.S$PTL>0)/nrow(T.S)
 sprintf("The fraction of smoking mothers which have previously had premature births is f %s.", f)
+
+#(2)define the function
+myfun <- function(m1, sd1, x0, x1, N){
+  sample1 <- rnorm(N, m1, sd1)
+  sample2 <- runif(N, x0, x1)
+  x = sample1 * sample2
+  return(x)
+  return(E(x))
+}
